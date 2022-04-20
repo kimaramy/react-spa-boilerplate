@@ -1,0 +1,62 @@
+{
+  // ===============
+  // Editor
+  // ===============
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  // ===============
+  // HTML
+  // ===============
+
+  "html.autoClosingTags": true,
+  "html.format.enable": false,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+
+  // ===============
+  // CSS
+  // ===============
+
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": false,
+
+  // ===============
+  // JSX
+  // ===============
+
+  "javascript.autoClosingTags": true,
+  "typescript.autoClosingTags": true,
+  "emmet.includeLanguages": {
+    "javscript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+
+  // ===============
+  // JS/TS
+  // ===============
+
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // ===============
+  // ESLint
+  // ===============
+
+  "eslint.run": "onType",
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.alwaysShowStatus": true
+}
