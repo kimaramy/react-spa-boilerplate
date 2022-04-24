@@ -1,5 +1,29 @@
 import axios from 'axios'
+import nprogress from 'nprogress'
 import type { Food, FoodDetail } from './food'
+
+nprogress.configure({ showSpinner: false, speed: 500 })
+
+axios.defaults.onDownloadProgress = (e: ProgressEvent) => {
+  const percentage = Math.floor(e.loaded * 1.0) / e.total
+  nprogress.set(percentage)
+}
+
+axios.defaults.onUploadProgress = (e: ProgressEvent) => {
+  const percentage = Math.floor(e.loaded * 1.0) / e.total
+  nprogress.set(percentage)
+}
+
+axios.interceptors.response.use(
+  (response) => {
+    nprogress.done()
+    return response
+  },
+  (error) => {
+    nprogress.done()
+    return Promise.reject(error)
+  },
+)
 
 const foodAPI = axios.create({
   baseURL: 'https://nrisecodingtest.s3.ap-northeast-2.amazonaws.com/fe/food',
@@ -8,7 +32,6 @@ const foodAPI = axios.create({
 
 const foodService = {
   getFoods: async () => {
-    // 에러 캐치와 함께 에러 바운더리로 버블링
     const { data } = await foodAPI.get<Food[]>('/food_main_list.json')
     return data
   },

@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { css } from '@emotion/react'
-import { useIsFetching, useIsMutating } from 'react-query'
-import { useNProgress } from '@/hooks'
+// import { useIsFetching, useIsMutating } from 'react-query'
+// import { useNProgress } from '@/hooks'
 
 const SheetCss = css`
   position: relative;
@@ -19,10 +19,10 @@ const SheetCss = css`
 const Sheet: React.FC = ({ children }) => {
   const location = useLocation()
 
-  const isFetching = useIsFetching() // 1(true) or 0(false)
-  const isMutating = useIsMutating() // 1(true) or 0(false)
+  // const isFetching = useIsFetching() // 1(true) or 0(false)
+  // const isMutating = useIsMutating() // 1(true) or 0(false)
 
-  useNProgress([location.pathname, isFetching, isMutating])
+  // useNProgress([location.pathname])
 
   useLayoutEffect(() => {
     const scrollY = sessionStorage.getItem('scrollY')
