@@ -1,0 +1,212 @@
+[
+  {
+    "id": 147,
+    "name": "중화볶음밥&굴림만두 고기 도시락",
+    "brand": "맛있닭",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/18/ca17724d4b7245d4.jpeg",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 122,
+    "name": "시저 샐러드랩과의 연애",
+    "brand": "샐러드판다",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/17/0fae3b6d4af04c00.jpeg",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 113,
+    "name": "터키 브레스트 쳐트니 바게트 샌드",
+    "brand": "프레시코드",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/17/731c2af8028548e4.jpeg",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 102,
+    "name": "미트프리 타코 샐러드",
+    "brand": "프레시코드",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/21/8cd79ccb64d240eb.jpeg",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 94,
+    "name": "새우 부리또 볼",
+    "brand": "샐러드판다",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/21/230c623e2be7451c.jpeg",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 89,
+    "name": "팟타이 샐러드",
+    "brand": "샐러드판다",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/20/aa0cfb25f2ef4bb8.jpeg",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 88,
+    "name": "비프 부리또 볼",
+    "brand": "샐러드판다",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/20/c3b39148ee834ce1.jpeg",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 81,
+    "name": "쉬림프 크림파스타 샐러드",
+    "brand": "슬림쿡",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/20/2ead09c6e1e446a0.jpeg",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 63,
+    "name": "파스타샐러드",
+    "brand": "포켓샐러드",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/21/62f006ad973d4208.jpeg",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 58,
+    "name": "치즈샐러드",
+    "brand": "포켓샐러드",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/21/7bef18511e684bec.jpeg",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 32,
+    "name": "[샐러드 스쿨] 모짜렐라&방울토마토 샐러드",
+    "brand": "프레쉬홈",
+    "image_url": "",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 31,
+    "name": "[몬스터 샐러드] 카프레제 샐러드",
+    "brand": "프레쉬홈",
+    "image_url": "",
+    "nutrition_grade": "A+"
+  },
+  {
+    "id": 148,
+    "name": "황금볶음밥&굴림만두 김치 도시락",
+    "brand": "맛있닭",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/18/85e9cfcb31f6413b.jpeg",
+    "nutrition_grade": "A"
+  },
+  {
+    "id": 140,
+    "name": "통새우 치아바타 샌드위치&샐러드",
+    "brand": "메이플델리",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/18/1d293a88381f460c.jpeg",
+    "nutrition_grade": "A"
+  },
+  {
+    "id": 133,
+    "name": "우삼겹 웜랩",
+    "brand": "샐러디",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/17/e402526eec0043c3.png",
+    "nutrition_grade": "A"
+  },
+  {
+    "id": 84,
+    "name": "훈제란 파프리카 샐러드",
+    "brand": "슬림쿡",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/20/40290143e46a4c3b.jpeg",
+    "nutrition_grade": "A"
+  },
+  {
+    "id": 83,
+    "name": "리코타 과일 샐러드",
+    "brand": "슬림쿡",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/20/a258f3a16a274eb0.jpeg",
+    "nutrition_grade": "A"
+  },
+  {
+    "id": 79,
+    "name": "롤치즈 메추리알 샐러드",
+    "brand": "슬림쿡",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/20/6ff3d0b4a5ad4d80.jpeg",
+    "nutrition_grade": "A"
+  },
+  {
+    "id": 67,
+    "name": "훈제란 파프리카 샐러드",
+    "brand": "슬림쿡",
+    "image_url": "",
+    "nutrition_grade": "A"
+  },
+  {
+    "id": 62,
+    "name": "통곡물샐러드",
+    "brand": "포켓샐러드",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_product/2022/2/21/727b4cf3ea494474.jpeg",
+    "nutrition_grade": "A"
+  },
+  {
+    "id": 13,
+    "name": "갈릭&쉬림프 샐러드",
+    "brand": "샐러드판다",
+    "image_url": "",
+    "nutrition_grade": "A"
+  },
+  {
+    "id": 145,
+    "name": "새우볶음밥&닭가슴살 동그랑땡 도시락",
+    "brand": "맛있닭",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/18/1b9afdb79c9c48e9.jpeg",
+    "nutrition_grade": "A-"
+  },
+  {
+    "id": 144,
+    "name": "양송이볶음밥&스팀닭가슴살 고추맛 도시락",
+    "brand": "맛있닭",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/18/4aeaa328c21e40be.jpeg",
+    "nutrition_grade": "A-"
+  },
+  {
+    "id": 143,
+    "name": "연근우엉밥&스팀닭가슴살 마늘맛 도시락",
+    "brand": "맛있닭",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/18/c8fea08b03af42d7.jpeg",
+    "nutrition_grade": "A-"
+  },
+  {
+    "id": 139,
+    "name": "베이컨 치아바타 샌드위치&샐러드",
+    "brand": "메이플델리",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/18/699f87d7c1d24e45.jpeg",
+    "nutrition_grade": "A-"
+  },
+  {
+    "id": 134,
+    "name": "팔라펠 웜랩",
+    "brand": "샐러디",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/17/112d01a9a6b84cb0.png",
+    "nutrition_grade": "A-"
+  },
+  {
+    "id": 115,
+    "name": "미트프리 타코 샐러드랩",
+    "brand": "프레시코드",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/17/8bf05e3b699340fd.jpeg",
+    "nutrition_grade": "A-"
+  },
+  {
+    "id": 111,
+    "name": "카프레제 엔초비 버터 바게트 샌드",
+    "brand": "프레시코드",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/17/78b862e124684fb6.jpeg",
+    "nutrition_grade": "A-"
+  },
+  {
+    "id": 109,
+    "name": "크랜베리 오렌지 치킨 바게트 샌드",
+    "brand": "프레시코드",
+    "image_url": "https://quat-dev-assets.dev.nrise.io/app/dev/diet_food/2022/3/17/1dfa10de3b324647.jpeg",
+    "nutrition_grade": "A-"
+  },
+  {
+    "id": 100,
+    "name": "화이트 치즈 파르팔레 샐러드",
+    "brand": "프레시코드",
+    "image_url": "",
+    "nutrition_grade": "A-"
+  }
+]

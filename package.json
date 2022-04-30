@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "NODE_ENV=development webpack serve --progress",
     "build": "NODE_ENV=production webpack",
-    "lint": "eslint src"
+    "json-server": "json-server --watch mock/db.js --port 8080 --open"
   },
   "dependencies": {
     "@emotion/react": "^11.8.2",
@@ -52,6 +52,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "json-server": "^0.17.0",
     "mini-css-extract-plugin": "^2.6.0",
     "normalize.css": "^8.0.1",
     "prettier": "^2.6.0",
