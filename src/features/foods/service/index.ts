@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '@/service/axios'
 import type { Food, FoodDetail } from './food'
 
 const foodAPI = axios.create({
@@ -8,7 +8,6 @@ const foodAPI = axios.create({
 
 const foodService = {
   getFoods: async () => {
-    // 에러 캐치와 함께 에러 바운더리로 버블링
     const { data } = await foodAPI.get<Food[]>('/foods')
     return data
   },

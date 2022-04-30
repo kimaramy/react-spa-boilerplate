@@ -24,7 +24,7 @@ const LastChild = styled.div`
 const _Frame: React.FC<Props> = ({ isLoading = false, onIntersect = () => null, children }) => {
   const targetRef = useIntersectionObserver<HTMLDivElement>(onIntersect)
 
-  useNProgress([isLoading])
+  // useNProgress([isLoading])
 
   return (
     <Frame>
