@@ -1,5 +1,6 @@
-export interface SearchQuery {
-  start: number
+export interface JsonServerQueryParams {
+  start?: number
   end?: number
   limit?: number
+  page?: number
 }

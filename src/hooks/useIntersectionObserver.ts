@@ -14,14 +14,13 @@ const baseOption = {
  */
 const useIntersectionObserver = <T extends HTMLElement>(
   onIntersect: () => void,
-  isActive: boolean,
   option: IntersectionObserverInit = {},
 ) => {
   const targetRef = useRef<T>(null) // Observer 콜백을 실행할 Observer 추적 대상(entry.target) 엘리먼트
 
   const checkIntersection = useCallback<IntersectionObserverCallback>(
     ([entry]) => {
-      if (entry.isIntersecting && isActive) onIntersect()
+      if (entry.isIntersecting) onIntersect()
     },
     [onIntersect], // props로 넘겨받은 onIntersect 콜백이 갱신되면 따라서 Observer 콜백 갱신, 아니면 캐시
   )

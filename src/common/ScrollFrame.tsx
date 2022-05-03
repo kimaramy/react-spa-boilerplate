@@ -20,17 +20,20 @@ const Fallback = styled.div`
   align-items: center;
   line-height: 5rem;
   font-size: 1rem;
+  color: white;
 `
 
 const ScrollFrame: React.FC<Props> = ({ onIntersect, isActive = true, isLoading = false, renderLoading, children }) => {
-  const targetRef = useIntersectionObserver<HTMLDivElement>(onIntersect, isActive)
+  const targetRef = useIntersectionObserver<HTMLDivElement>(onIntersect)
 
   return (
     <Frame>
       {children}
-      <Fallback ref={targetRef}>
-        {renderLoading ? renderLoading(isLoading) : isLoading ? '불러오는 중...' : null}
-      </Fallback>
+      {isActive && (
+        <Fallback ref={targetRef}>
+          {renderLoading ? renderLoading(isLoading) : isLoading ? '불러오는 중...' : null}
+        </Fallback>
+      )}
     </Frame>
   )
 }
