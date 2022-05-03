@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-const Container = styled.div`
+const Box = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -9,4 +9,4 @@ const Container = styled.div`
   border-radius: 6px;
 `
 
-export default Container
+export default Box

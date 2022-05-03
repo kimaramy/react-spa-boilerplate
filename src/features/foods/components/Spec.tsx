@@ -2,7 +2,8 @@ import styled from '@emotion/styled'
 
 const SpecList = styled.div`
   display: grid;
-  grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
+  /* grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem); */
+  grid-template-columns: 1fr 1fr;
   grid-row: auto auto;
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;

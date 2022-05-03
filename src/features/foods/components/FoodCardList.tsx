@@ -1,41 +1,54 @@
 import { useState, useReducer, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Heading, Body } from '@/common/Typography'
-import Frame from '@/common/Frame'
+import ScrollFrame from '@/common/ScrollFrame'
 import Card from './Card'
+import { useFoodList } from '../hooks'
 import { getGradeColor } from '../utils'
 import type { Food } from '../service/food'
+import type { SearchQuery } from '@/service/interfaces'
 
-interface Props {
-  foods: Food[]
-  amountToAdd: number
-}
+// interface Props {
+//   // initialData: Food[]
+//   start: number
+//   limit: number
+// }
 
-type FoodsReducer = (curr: Food[], next: Food[]) => Food[]
+// type FoodsReducer = (curr: Food[], next: Food[]) => Food[]
 
-const FoodCardList: React.FC<Props> = ({ foods, amountToAdd }) => {
+const FoodCardList: React.FC = () => {
   const navigate = useNavigate()
 
-  const [isLoading, setIsLoading] = useState(false)
+  const [totalCount, setTotalCount] = useState(0)
 
-  const [currFoods, addNextFoods] = useReducer<FoodsReducer>(
-    (curr, next) => curr.concat(next),
-    JSON.parse(sessionStorage.getItem('foods') as string) || [],
-  )
+  const { data: res } = useFoodList({ start: 0, limit: 10 })
 
-  const renderMoreFoods = useCallback(() => {
-    if (currFoods.length < foods.length) {
-      setIsLoading(true)
-      console.log(`
-        Render more foods.
-        Current: ${currFoods.length}
-        Next: ${currFoods.length + amountToAdd}
-        Last: ${foods.length}
-      `)
-      addNextFoods(foods.slice(currFoods.length, currFoods.length + amountToAdd))
-      setIsLoading(false)
+  useEffect(() => {
+    if (res) {
+      setTotalCount(Number(res.headers['X-Total-Count']))
+    } else {
+      setTotalCount(0)
     }
-  }, [foods, amountToAdd, currFoods])
+  }, [res])
+
+  // const [isLoading, setIsLoading] = useState(false)
+
+  // const [currFoods, addNextFoods] = useReducer<FoodsReducer>(
+  //   (curr, next) => curr.concat(next),
+  //   [],
+  // )
+
+  // const renderMoreFoods = useCallback(() => {
+  //   setIsLoading(true)
+  //   console.log(`
+  //       Render more foods.
+  //       Current: ${currFoods.length}
+  //       Next: ${currFoods.length + amountToAdd}
+  //       Last: ${foods.length}
+  //     `)
+  //   addNextFoods(foods.slice(currFoods.length, currFoods.length + amountToAdd))
+  //   setIsLoading(false)
+  // }, [foods, amountToAdd, currFoods])
 
   const handleCardClick = (foodId: number) => {
     sessionStorage.setItem('scrollY', window.scrollY.toString())
@@ -47,7 +60,7 @@ const FoodCardList: React.FC<Props> = ({ foods, amountToAdd }) => {
   }, [currFoods])
 
   return (
-    <Frame isLoading={isLoading} onIntersect={renderMoreFoods}>
+    <ScrollFrame onIntersect={renderMoreFoods} isLoading={isLoading} isActive={res?.data.length < totalCount}>
       <Card.List>
         {currFoods.map((food) => (
           <Card key={food.id} onClick={() => handleCardClick(food.id)}>
@@ -67,7 +80,7 @@ const FoodCardList: React.FC<Props> = ({ foods, amountToAdd }) => {
           </Card>
         ))}
       </Card.List>
-    </Frame>
+    </ScrollFrame>
   )
 }
 
