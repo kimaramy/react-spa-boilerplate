@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { css } from '@emotion/react'
-// import { useIsFetching, useIsMutating } from 'react-query'
-// import { useNProgress } from '@/hooks'
+import { useDarkModeContext } from '@/context/DarkModeContext'
+import type { HistoryState } from '@/types'
 
 const SheetCss = css`
   position: relative;
@@ -17,25 +17,30 @@ const SheetCss = css`
 `
 
 const Sheet: React.FC = ({ children }) => {
+  console.log('Sheet rendered')
+
   const location = useLocation()
 
-  // const isFetching = useIsFetching() // 1(true) or 0(false)
-  // const isMutating = useIsMutating() // 1(true) or 0(false)
-
-  // useNProgress([location.pathname])
+  const [darkMode, toggleDarkMode] = useDarkModeContext()
 
   useLayoutEffect(() => {
-    const scrollY = sessionStorage.getItem('scrollY')
-    if (location.pathname === '/' && scrollY) {
-      // console.log('scrollY', scrollY)
-      sessionStorage.removeItem('scrollY')
-      window.scrollTo({ top: Number(scrollY), left: 0 })
+    const scrollRestorable = (location.state as HistoryState)?.scrollRestorable || false
+    if (scrollRestorable) {
+      const [left, top] = (location.state as HistoryState)?.backScrollPosition || [0, 0]
+      window.scrollTo({ left, top })
     } else {
-      window.scrollTo({ top: 0, left: 0 })
+      window.scrollTo({ left: 0, top: 0 })
     }
-  }, [location.pathname])
+  }, [location.state])
 
-  return <div css={SheetCss}>{children}</div>
+  return (
+    <div css={SheetCss}>
+      <div>
+        <button onClick={() => toggleDarkMode((isDarkMode) => !isDarkMode)}>{`${darkMode}`}</button>
+      </div>
+      {children}
+    </div>
+  )
 }
 
 export default Sheet

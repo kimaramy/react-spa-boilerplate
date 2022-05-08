@@ -6,7 +6,6 @@ const CardList = styled.ul`
   gap: 0.5rem;
   width: 100%;
   min-height: 100%;
-  margin-top: 1.5rem;
   list-style: none;
   padding: 0;
 `
