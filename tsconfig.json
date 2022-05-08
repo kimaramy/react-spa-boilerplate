@@ -26,6 +26,6 @@
     "jsxImportSource": "@emotion/react"
   },
   "compileOnSave": true,
-  "include": ["src", "src/features/foods/service/types/.ts"],
+  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

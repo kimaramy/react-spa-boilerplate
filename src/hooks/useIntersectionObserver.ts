@@ -19,8 +19,11 @@ const useIntersectionObserver = <T extends HTMLElement>(
   const targetRef = useRef<T>(null) // Observer 콜백을 실행할 Observer 추적 대상(entry.target) 엘리먼트
 
   const checkIntersection = useCallback<IntersectionObserverCallback>(
-    ([entry]) => {
-      if (entry.isIntersecting) onIntersect()
+    ([entry], observer) => {
+      if (entry.isIntersecting) {
+        onIntersect()
+        observer.unobserve(entry.target) // 중복 onIntersect 콜 방지
+      }
     },
     [onIntersect], // props로 넘겨받은 onIntersect 콜백이 갱신되면 따라서 Observer 콜백 갱신, 아니면 캐시
   )

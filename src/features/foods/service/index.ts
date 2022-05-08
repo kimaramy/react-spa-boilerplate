@@ -1,6 +1,6 @@
 import axios from '@/service/axios'
 import type { Food, FoodDetail } from './food'
-import type { JsonServerQueryParams } from '@/service/interfaces'
+import type { JsonServerQueryParams } from '@/types'
 
 const foodAPI = axios.create({
   baseURL: 'http://localhost:8080/',

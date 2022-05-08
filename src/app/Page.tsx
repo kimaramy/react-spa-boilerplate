@@ -6,6 +6,7 @@ const FoodDetailPage = lazy(() => import('@/features/foods/FoodDetailPage'))
 const ErrorPage = lazy(() => import('@/common/ErrorPage'))
 
 export default function Page() {
+  console.log('Page rendered')
   return (
     <>
       <Routes>

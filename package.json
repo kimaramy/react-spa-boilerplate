@@ -11,8 +11,8 @@
     "yarn": "^1.22.10"
   },
   "scripts": {
-    "dev": "NODE_ENV=development webpack serve --progress",
-    "build": "NODE_ENV=production webpack",
+    "dev": "webpack serve --mode development --progress --open",
+    "build": "webpack",
     "json-server": "json-server --watch mock/db.js --port 8080 --open"
   },
   "dependencies": {

@@ -2,7 +2,7 @@ import foodService from '../service'
 import { useQuery, useInfiniteQuery } from 'react-query'
 import type { AxiosError, AxiosResponse } from 'axios'
 import type { Food, FoodDetail } from '../service/food'
-import type { JsonServerQueryParams } from '@/service/interfaces'
+import type { JsonServerQueryParams } from '@/types'
 
 export function useInfiniteFoods(initialParams: JsonServerQueryParams) {
   return useInfiniteQuery<AxiosResponse<Food[]>, AxiosError>(
@@ -23,6 +23,7 @@ export function useInfiniteFoods(initialParams: JsonServerQueryParams) {
           console.error(err)
         }
       },
+      staleTime: 1000 * 60, // 1 min
     },
   )
 }
@@ -33,6 +34,7 @@ export function useFoodDetailById(foodId: number) {
     () => foodService.fetchFoodDetailById(foodId),
     {
       select: ({ data }) => data,
+      staleTime: 1000 * 60 * 5, // 5 mins
     },
   )
 }

@@ -1,4 +1,5 @@
-import { useParams, Link } from 'react-router-dom'
+import { useCallback } from 'react'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import { Heading, Body } from '@/common/Typography'
 import Navbar from '@/common/Navbar'
 import { SafeArea } from '@/common/Container'
@@ -16,17 +17,31 @@ import { useFoodDetailById } from './hooks'
 
 const FoodDetailPage = () => {
   const params = useParams()
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const { data } = useFoodDetailById(Number(params.id))
+
+  const onBackIconClick = useCallback(() => {
+    if (location.state) {
+      navigate((location.state as any)?.backPathname || -1, {
+        state: {
+          backPathname: null,
+          backScrollPosition: (location.state as any).backScrollPosition || [0, 0],
+          scrollRestorable: true,
+        },
+      })
+    }
+  }, [navigate, location.state])
 
   return (
     <>
       <Navbar isFixed>
-        <Link to="/">
+        <a onClick={onBackIconClick}>
           <BackIcon />
-        </Link>
+        </a>
       </Navbar>
-      (
+
       <SafeArea as="main">
         <header css={{ marginBottom: '2.5rem' }}>{data && <FoodThumbnail food={data} />}</header>
 
@@ -76,7 +91,6 @@ const FoodDetailPage = () => {
           </PurchareButton>
         </footer>
       </SafeArea>
-      )
     </>
   )
 }

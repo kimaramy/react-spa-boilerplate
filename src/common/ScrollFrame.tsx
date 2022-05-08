@@ -11,6 +11,9 @@ interface Props {
 const Frame = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `
 
 const Fallback = styled.div`

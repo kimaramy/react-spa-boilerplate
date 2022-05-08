@@ -1,51 +1,26 @@
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Heading, Body } from '@/common/Typography'
 import Card from './Card'
 import { getGradeColor } from '../utils'
 import type { Food } from '../service/food'
-// import type { SearchQuery } from '@/service/interfaces'
 
 interface Props {
   foods: Food[]
 }
 
-// type FoodsReducer = (curr: Food[], next: Food[]) => Food[]
-
 const FoodCardList: React.FC<Props> = ({ foods }) => {
   const navigate = useNavigate()
-
-  // const [totalCount, setTotalCount] = useState(0)
-
-  // useEffect(() => {
-  //   if (res) {
-  //     setTotalCount(Number(res.headers['X-Total-Count']))
-  //   } else {
-  //     setTotalCount(0)
-  //   }
-  // }, [res])
-
-  // const [isLoading, setIsLoading] = useState(false)
-
-  // const [currFoods, addNextFoods] = useReducer<FoodsReducer>(
-  //   (curr, next) => curr.concat(next),
-  //   [],
-  // )
-
-  // const renderMoreFoods = useCallback(() => {
-  //   setIsLoading(true)
-  //   console.log(`
-  //       Render more foods.
-  //       Current: ${currFoods.length}
-  //       Next: ${currFoods.length + amountToAdd}
-  //       Last: ${foods.length}
-  //     `)
-  //   addNextFoods(foods.slice(currFoods.length, currFoods.length + amountToAdd))
-  //   setIsLoading(false)
-  // }, [foods, amountToAdd, currFoods])
+  const location = useLocation()
 
   const handleCardClick = (foodId: number) => {
-    sessionStorage.setItem('scrollY', window.scrollY.toString())
-    navigate(`/${foodId}`)
+    // sessionStorage.setItem('scrollY', window.scrollY.toString())
+    navigate(`/${foodId}`, {
+      state: {
+        backPathname: location.pathname,
+        backScrollPosition: [window.scrollX, window.scrollY],
+        scrollRestorable: false,
+      },
+    })
   }
 
   return (
