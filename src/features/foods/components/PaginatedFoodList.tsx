@@ -1,4 +1,4 @@
-import { useState, useMemo, useLayoutEffect } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Container from '@/common/Container'
 import { Heading } from '@/common/Typography'
@@ -9,23 +9,23 @@ interface Props {
   /**
    * number of initial page
    */
-  initialPageNum?: number
+  initialPage?: number
   /**
    * total number of items per page
    */
   limit?: number
 }
 
-const PaginatedFoodList: React.FC<Props> = ({ initialPageNum = 1, limit = 5 }) => {
+const PaginatedFoodList: React.FC<Props> = ({ initialPage = 1, limit = 5 }) => {
   const [searchParams, setSearchParams] = useSearchParams()
 
-  const [pageNum, setPageNum] = useState(initialPageNum)
+  const [pageNum, setPageNum] = useState(initialPage)
 
   const { data, isFetching } = usePaginatedFoods({ page: pageNum, limit })
 
   const lastPageNum = useMemo(() => Math.ceil((Number(data?.headers['x-total-count']) || limit) / limit), [data, limit])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const params = {} as Record<string, string>
     searchParams.forEach((value, key) => {
       if (value) params[key] = value

@@ -6,8 +6,8 @@ import { Heading } from '@/common/Typography'
 import PaginatedFoodList from './components/PaginatedFoodList'
 import ScrolledFoodList from './components/ScrolledFoodList'
 
-const getNextListingQuery = (listingQuery: string | null): string => {
-  switch (listingQuery) {
+const getNextListingParam = (listingParam: string | null): string => {
+  switch (listingParam) {
     case 'scroll':
       return 'page'
     case 'page':
@@ -17,16 +17,22 @@ const getNextListingQuery = (listingQuery: string | null): string => {
 }
 
 const FoodListPage: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams({ listing: 'scroll' })
 
-  const [listingQuery, setListQuery] = useState(() => searchParams.get('listing'))
+  const [listingParam, setListingParam] = useState(() => searchParams.get('listing'))
+
+  const [pageParam] = useState(() => Number(searchParams.get('page')) || 1) // Number(null) === 0
 
   useEffect(() => {
-    if (listingQuery) {
-      // listQuery가 setListQuery에 의해 변경 되면 쿼리 파라미터도 변경
-      setSearchParams({ listing: listingQuery })
+    if (listingParam) {
+      // listingParam이 setListingParam에 의해 변경되면 쿼리 파라미터도 변경
+      const params = {} as Record<string, string>
+      searchParams.forEach((value, key) => {
+        params[key] = value
+      })
+      setSearchParams({ ...params, listing: listingParam })
     }
-  }, [listingQuery, setSearchParams])
+  }, [listingParam, searchParams, setSearchParams])
 
   return (
     <>
@@ -35,12 +41,12 @@ const FoodListPage: React.FC = () => {
         <Container as="header" css={{ marginBottom: '1.5rem', flexGrow: 0 }}>
           <div css={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Heading.Lg>푸드</Heading.Lg>
-            <button onClick={() => setListQuery(getNextListingQuery(listingQuery))}>
-              {getNextListingQuery(listingQuery)} view
+            <button onClick={() => setListingParam(getNextListingParam(listingParam))}>
+              {getNextListingParam(listingParam)} view
             </button>
           </div>
         </Container>
-        {listingQuery === 'page' ? <PaginatedFoodList /> : <ScrolledFoodList />}
+        {listingParam === 'page' ? <PaginatedFoodList initialPage={pageParam} /> : <ScrolledFoodList />}
       </SafeArea>
     </>
   )
