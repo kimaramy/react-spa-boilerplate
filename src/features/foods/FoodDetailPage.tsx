@@ -14,6 +14,11 @@ import CaloriePercentage from './components/CaloriePercentage'
 import NutritionPercentage from './components/NutritionPercentage'
 import PurchareButton from './components/PurchaseButton'
 import { useFoodDetailById } from './hooks'
+import styled from '@emotion/styled'
+
+const BackButton = styled.a`
+  cursor: pointer;
+`
 
 const FoodDetailPage = () => {
   const params = useParams()
@@ -24,9 +29,8 @@ const FoodDetailPage = () => {
 
   const onBackIconClick = useCallback(() => {
     if (location.state) {
-      navigate((location.state as any)?.backPathname || -1, {
+      navigate((location.state as any)?.backTo || -1, {
         state: {
-          backPathname: null,
           backScrollPosition: (location.state as any).backScrollPosition || [0, 0],
           scrollRestorable: true,
         },
@@ -37,9 +41,9 @@ const FoodDetailPage = () => {
   return (
     <>
       <Navbar isFixed>
-        <a onClick={onBackIconClick}>
+        <BackButton onClick={onBackIconClick}>
           <BackIcon />
-        </a>
+        </BackButton>
       </Navbar>
 
       <SafeArea as="main">

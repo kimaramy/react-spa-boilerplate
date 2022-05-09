@@ -6,10 +6,11 @@ import type { JsonServerQueryParams } from '@/types'
 
 export function useInfiniteFoods(initialParams: JsonServerQueryParams) {
   return useInfiniteQuery<AxiosResponse<Food[]>, AxiosError>(
-    ['foods'],
+    ['foods?_list=scroll'],
     ({ pageParam = 1 }) => foodService.fetchFoods({ ...initialParams, page: pageParam }),
     {
       /**
+       * 동일한 키 호출에 대해 쿼리 함수 실행 전 다음 미들웨어 실행
        * @param page 현재 페이지 데이터
        * @param pages 누적 페이지 데이터 리스트
        */
@@ -28,9 +29,20 @@ export function useInfiniteFoods(initialParams: JsonServerQueryParams) {
   )
 }
 
+export function usePaginatedFoods(params: JsonServerQueryParams) {
+  return useQuery<AxiosResponse<Food[]>, AxiosError>(
+    ['foods?_list=pagination', params.page],
+    () => foodService.fetchFoods({ ...params }),
+    {
+      keepPreviousData: true,
+      staleTime: 1000 * 60,
+    },
+  )
+}
+
 export function useFoodDetailById(foodId: number) {
   return useQuery<AxiosResponse<FoodDetail>, AxiosError, FoodDetail>(
-    ['foodDetails', foodId],
+    ['food_details', foodId],
     () => foodService.fetchFoodDetailById(foodId),
     {
       select: ({ data }) => data,
