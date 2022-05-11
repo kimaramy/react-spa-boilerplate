@@ -10,13 +10,13 @@ interface Props {
 
 const FoodCardList: React.FC<Props> = ({ foods }) => {
   const navigate = useNavigate()
-  const location = useLocation()
+  const { pathname, search, hash } = useLocation()
 
   const handleCardClick = (foodId: number) => {
     // sessionStorage.setItem('scrollY', window.scrollY.toString())
     navigate(`/${foodId}`, {
       state: {
-        backPathname: location.pathname,
+        backTo: { pathname, search, hash },
         backScrollPosition: [window.scrollX, window.scrollY],
         scrollRestorable: false,
       },
