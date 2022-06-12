@@ -2,10 +2,9 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { Heading, Body } from '@/common/Typography'
 import Card from './Card'
 import { getGradeColor } from '../utils'
-import type { Food } from '../service/food'
 
 interface Props {
-  foods: Food[]
+  foods: ReadonlyArray<Food.Item>
 }
 
 const FoodCardList: React.FC<Props> = ({ foods }) => {
@@ -13,13 +12,12 @@ const FoodCardList: React.FC<Props> = ({ foods }) => {
   const { pathname, search, hash } = useLocation()
 
   const handleCardClick = (foodId: number) => {
-    // sessionStorage.setItem('scrollY', window.scrollY.toString())
     navigate(`/${foodId}`, {
       state: {
         backTo: { pathname, search, hash },
         backScrollPosition: [window.scrollX, window.scrollY],
         scrollRestorable: false,
-      },
+      } as ReactRouterRouteState,
     })
   }
 

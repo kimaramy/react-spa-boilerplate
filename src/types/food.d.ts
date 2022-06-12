@@ -2,7 +2,7 @@ export type NutritionGrade = 'A+' | 'A' | 'A-' | 'B+' | 'B' | 'B-' | 'C'
 
 export type NutritionName = 'calories' | 'carbs' | 'protein' | 'fat' | 'natrium'
 
-export interface Food {
+export interface FoodItem {
   /**
    * 상품 ID
    */
@@ -25,7 +25,7 @@ export interface Food {
   nutrition_grade: NutritionGrade
 }
 
-export interface FoodDetail extends Food {
+export interface FoodDetail extends FoodItem {
   /**
    * 가격
    */
@@ -76,4 +76,11 @@ export interface FoodDetail extends Food {
      */
     recommended_amount: number
   }[]
+}
+
+declare global {
+  namespace Food {
+    type Item = FoodItem
+    type Detail = FoodDetail
+  }
 }

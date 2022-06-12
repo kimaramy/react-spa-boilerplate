@@ -1,10 +1,9 @@
 import { Heading, Body } from '@/common/Typography'
 import ProgressBar from '@/common/ProgressBar'
-import type { FoodDetail } from '../service/food'
 import { getNutritionName } from '../utils'
 
 interface Props {
-  nutrition: FoodDetail['nutrition_facts'][0]
+  nutrition: Food.Detail['nutrition_facts'][0]
 }
 
 const NutritionPercentage: React.FC<Props> = ({ nutrition }) => (

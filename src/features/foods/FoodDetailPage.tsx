@@ -27,13 +27,16 @@ const FoodDetailPage = () => {
 
   const { data } = useFoodDetailById(Number(params.id))
 
-  const onBackIconClick = useCallback(() => {
-    if (location.state) {
-      navigate((location.state as any)?.backTo || -1, {
+  const onBackClick = useCallback(() => {
+    const routeState = location.state as ReactRouterRouteState
+
+    if (routeState) {
+      // @ts-ignore
+      navigate(routeState?.backTo || -1, {
         state: {
-          backScrollPosition: (location.state as any).backScrollPosition || [0, 0],
+          backScrollPosition: routeState?.backScrollPosition || [0, 0],
           scrollRestorable: true,
-        },
+        } as ReactRouterRouteState,
       })
     }
   }, [navigate, location.state])
@@ -41,7 +44,7 @@ const FoodDetailPage = () => {
   return (
     <>
       <Navbar isFixed>
-        <BackButton onClick={onBackIconClick}>
+        <BackButton onClick={onBackClick}>
           <BackIcon />
         </BackButton>
       </Navbar>

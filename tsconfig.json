@@ -23,9 +23,10 @@
       "@/*": ["./src/*"],
       "~/*": ["./*"]
     },
-    "jsxImportSource": "@emotion/react"
+    "jsxImportSource": "@emotion/react",
+    "typeRoots": ["node_modules/@types", "src/types"]
   },
-  "compileOnSave": true,
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "compileOnSave": true
+  // "include": ["src"],
+  // "exclude": ["dist"]
 }

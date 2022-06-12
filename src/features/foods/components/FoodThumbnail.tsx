@@ -1,9 +1,8 @@
 import { Heading, Body } from '@/common/Typography'
 import Thumbnail from './Thumbnail'
-import type { FoodDetail } from '../service/food'
 
 interface Props {
-  food: FoodDetail
+  food: Food.Detail
 }
 
 const FoodThumbnail: React.FC<Props> = ({ food }) => (

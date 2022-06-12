@@ -39,14 +39,18 @@ const PaginatedFoodList: React.FC<Props> = ({ initialPage = 1, limit = 5 }) => {
       <Container as="div">
         <div>{data?.data && <FoodCardList foods={data.data} />}</div>
         <div>
-          {pageNum > 1 && lastPageNum - pageNum > 2 && <button onClick={() => setPageNum(1)}>Start</button>}
+          <button disabled={pageNum === 1} onClick={() => setPageNum(1)}>
+            Start
+          </button>
           <button disabled={pageNum === 1} onClick={() => setPageNum((pageNum) => --pageNum)}>
             Prev
           </button>
           <button disabled={pageNum === lastPageNum} onClick={() => setPageNum((pageNum) => ++pageNum)}>
             Next
           </button>
-          {pageNum < lastPageNum && <button onClick={() => setPageNum(lastPageNum)}>End</button>}
+          <button disabled={pageNum === lastPageNum} onClick={() => setPageNum(lastPageNum)}>
+            End
+          </button>
         </div>
         {isFetching && <p>Loading...</p>}
       </Container>

@@ -1,7 +1,7 @@
+import type { NutritionGrade } from '@/types/food'
 import { Display, Body } from '@/common/Typography'
 import Spec from './Spec'
 import { getGradeColor } from '../utils'
-import type { NutritionGrade } from '../service/food'
 
 interface Props {
   grade: NutritionGrade

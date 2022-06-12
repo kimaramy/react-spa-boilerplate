@@ -1,4 +1,4 @@
-import type { NutritionGrade, NutritionName } from '../service/food'
+import type { NutritionGrade, NutritionName } from '@/types/food'
 
 export const getGradeColor = (grade: NutritionGrade) => {
   switch (grade) {

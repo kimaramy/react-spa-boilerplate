@@ -1,12 +1,10 @@
 import foodService from '../service'
 import { useQuery, useInfiniteQuery } from 'react-query'
 import type { AxiosError, AxiosResponse } from 'axios'
-import type { Food, FoodDetail } from '../service/food'
-import type { JsonServerQueryParams } from '@/types'
 
 export function useInfiniteFoods(initialParams: JsonServerQueryParams) {
-  return useInfiniteQuery<AxiosResponse<Food[]>, AxiosError>(
-    ['foods?_list=scroll'],
+  return useInfiniteQuery<AxiosResponse<Food.Item[]>, AxiosError>(
+    ['foods', 'scroll'],
     ({ pageParam = 1 }) => foodService.fetchFoods({ ...initialParams, page: pageParam }),
     {
       /**
@@ -30,9 +28,9 @@ export function useInfiniteFoods(initialParams: JsonServerQueryParams) {
 }
 
 export function usePaginatedFoods(params: JsonServerQueryParams) {
-  return useQuery<AxiosResponse<Food[]>, AxiosError>(
-    ['foods?_list=pagination', params.page],
-    () => foodService.fetchFoods({ ...params }),
+  return useQuery<AxiosResponse<Food.Item[]>, AxiosError>(
+    ['foods', 'pagination', params],
+    () => foodService.fetchFoods(params),
     {
       keepPreviousData: true,
       staleTime: 1000 * 60,
@@ -41,8 +39,8 @@ export function usePaginatedFoods(params: JsonServerQueryParams) {
 }
 
 export function useFoodDetailById(foodId: number) {
-  return useQuery<AxiosResponse<FoodDetail>, AxiosError, FoodDetail>(
-    ['food_details', foodId],
+  return useQuery<AxiosResponse<Food.Detail>, AxiosError, Food.Detail>(
+    ['foodDetail', foodId],
     () => foodService.fetchFoodDetailById(foodId),
     {
       select: ({ data }) => data,

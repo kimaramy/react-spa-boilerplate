@@ -1,9 +1,10 @@
 import { Display, Heading, Body } from '@/common/Typography'
 import Spec from './Spec'
 import { getNutritionName, getRatioDiffColor } from '../utils'
-import type { FoodDetail } from '../service/food'
 
-const NutritionRatioSpec: React.FC<FoodDetail['nutrients_ratio'][0]> = ({ name, ratio, recommended, diff }) => (
+type Props = Food.Detail['nutrients_ratio'][0]
+
+const NutritionRatioSpec: React.FC<Props> = ({ name, ratio, recommended, diff }) => (
   <Spec bgColor="#1E2127">
     <Spec.Content>
       <div>

@@ -1,9 +1,8 @@
 import { Heading, Body } from '@/common/Typography'
 import ProgressBar from '@/common/ProgressBar'
-import type { FoodDetail } from '../service/food'
 
 interface Props {
-  calorie: FoodDetail['nutrition_facts'][0]
+  calorie: Food.Detail['nutrition_facts'][0]
 }
 
 const CaloriePercentage: React.FC<Props> = ({ calorie }) => (
